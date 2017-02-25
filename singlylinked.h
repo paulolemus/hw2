@@ -32,10 +32,10 @@ class SLinkedList{
     SNode<T>* insert(const T& data, SNode<T>* p); // insert acc before p, return acc*
     SNode<T>* add(const T& data, SNode<T>* p);    // add acc after p, return n pointer
     SNode<T>* erase(SNode<T>* p);                 // erase using given ptr
-    SNode<T>* erase(T& data);                     // erase by data
-    SNode<T>* find(SNode<T>* b, T& data);         // from b to null, return node with s
-    SNode<T>* find(T& data);                      // seach whole list for s
-    SNode<T>* advance(SNode<T>* p, int n);
+    SNode<T>* erase(const T& data);               // erase by data
+    SNode<T>* find(const T& data, SNode<T>* p);   // from p to null, return node with s
+    SNode<T>* find(const T& data);                // seach whole list for s
+    SNode<T>* advance(SNode<T>* p, int n);        // return node n ahead of p in list
     SNode<T>* append(const T& data);              // add a to end of list
     void      printAll(SNode<T>* p);
     void      printAll();
@@ -70,12 +70,12 @@ SLinkedList<T>::SLinkedList(){
 template <typename T>
 SNode<T>* SLinkedList<T>::insert(const T& data, SNode<T>* p){
     SNode<T>* previous = NULL;
-    SNode<T>* current  = this->head;
+    SNode<T>* current  = head;
 
-    if(p == this->head){
+    if(p == head){
         SNode<T>* node = new SNode<T>(data);
-        node->next = this->head;
-        this->head = node;
+        node->next = head;
+        head       = node;
         return node;
     }
     while(current){
@@ -111,11 +111,112 @@ SNode<T>* SLinkedList<T>::add(const T& data, SNode<T>* p){
     return node;
 }
 
+/* Erase:
+ * Erase using a ptr given to the node to erase
+ */
+template <typename T>
+SNode<T>* SLinkedList<T>::erase(SNode<T>* p){
+    SNode<T>* prev = NULL;
+    SNode<T>* curr = head;
+    while(curr){
+        if(curr == p) break;
+        prev = curr;
+        curr = curr->next;
+    }
+    if(curr == head){
+        head = head->next;
+        delete p;
+        return head;
+    }
+    if(curr == tail){
+        tail = prev;
+        tail->next = NULL;
+        delete p;
+        return tail;
+    }
+    prev->next = curr->next;
+    delete p;
+    return prev;
+}
+template <typename T>
+SNode<T>* SLinkedList<T>::erase(const T& data){
+    SNode<T>* prev = NULL;
+    SNode<T>* curr = head;
+    while(curr){
+        if(curr->data == data) break;
+        prev = curr;
+        curr = curr->next;
+    }
+    if(curr == head){
+        head = head->next;
+        delete curr;
+        return head;
+    }
+    if(curr == tail){
+        tail = prev;
+        tail->next = NULL;
+        delete curr;
+        return tail;
+    }
+    prev->next = curr->next;
+    delete curr;
+    return prev;
+}
+
+/* Find:
+ * from p to null, return node with data
+ */
+template <typename T>
+SNode<T>* SLinkedList<T>::find(const T& data, SNode<T>* p){
+    while(p != NULL){
+        if(p->data == data) break;
+        p = p->next;
+    }
+    return p;
+}
+template <typename T>
+SNode<T>* SLinkedList<T>::find(const T& data){
+    SNode<T>* p = head;
+    while(p != NULL){
+        if(p->data == data) break;
+        p = p->next;
+    }
+    return p;
+}
+
+/* Advance:
+ * Return ptr to node n links ahead of p
+ * If p is null or if there arent n links,
+ * return null. Otherwise return valid ptr.
+ */
+template <typename T>
+SNode<T>* SLinkedList<T>::advance(SNode<T>* p, int n){
+    if(!p) return NULL;
+    for(int i = 0; i < n; i++){
+        p = p->next;
+        if(!p) return NULL;
+    }
+    return p;
+}
+
 /* Append:
  * This adds a new node to the end of the list
  */
-SNode<T>* append(const T& data){
-
+template <typename T>
+SNode<T>* SLinkedList<T>::append(const T& data){
+    SNode<T>* node = new SNode<T>(data);
+    if(head == NULL){
+        head = node;
+        return node;
+    }
+    if(head->next == NULL){
+        head->next = node;
+        tail = node;
+        return node;
+    }
+    if(tail != NULL) tail->next = node;
+    tail = node;
+    return node;
 }
 
 /* PrintAll:
@@ -132,7 +233,7 @@ void SLinkedList<T>::printAll(SNode<T>* p){
 }
 template <typename T>
 void SLinkedList<T>::printAll(){
-    SNode<T>* p = this->head;
+    SNode<T>* p = head;
     if(p == NULL) std::cout << "Nothing to print!" << std::endl;
     while(p != NULL){
         std::cout << p->data << std::endl;
@@ -141,11 +242,11 @@ void SLinkedList<T>::printAll(){
 }
 // Getters / Setters //
 template <typename T>
-SNode<T>* SLinkedList<T>::getTail(){return this->tail;}
+SNode<T>* SLinkedList<T>::getTail(){return tail;}
 template <typename T>
-SNode<T>* SLinkedList<T>::setTail(SNode<T>* p){this->tail = p; return this->tail;}
+SNode<T>* SLinkedList<T>::setTail(SNode<T>* p){this->tail = p; return tail;}
 template <typename T>
-SNode<T>* SLinkedList<T>::getHead(){ return this->head;}
+SNode<T>* SLinkedList<T>::getHead(){ return head;}
 template <typename T>
-SNode<T>* SLinkedList<T>::setHead(SNode<T>* p){this->head = p; return this->head;}
+SNode<T>* SLinkedList<T>::setHead(SNode<T>* p){this->head = p; return head;}
 #endif
