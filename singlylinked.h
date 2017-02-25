@@ -19,7 +19,7 @@ struct SNode{
     SNode<T>* next;
 
     SNode(const T& data, SNode<T>* next = NULL);
-    //friend std::ostream& operator<<(std::ostream& output, const T& data);
+    //friend std::ostream& operator<<(std::ostream& output, const SNode<T>* p);
 };
 
 template <typename T>
@@ -53,6 +53,16 @@ class SLinkedList{
 // Constructor
 template <typename T>
 SNode<T>::SNode(const T& data, SNode<T>* next):data(data), next(next){}
+
+/* << Overload
+ * Used in printing out a node's data using a pointer to data.
+ *
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const SNode<T>* p){
+    out << p->value;
+    return out;
+}
+*/
 
 // Constructor
 template <typename T>

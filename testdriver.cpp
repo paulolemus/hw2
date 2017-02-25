@@ -1,6 +1,7 @@
-//driver.cpp
-//Matthew Yamamoto
-//02/24/17
+/* File: testdriver.cpp
+ * Name: Paulo Lemus
+ * Date: 2/24/2017
+ */
 
 #include <iostream>
 #include "singlylinked.h"
@@ -33,10 +34,7 @@ int main(){
     list.printAll();
     list.printAll(ptr1);
 
-    cout << "---------------------------" << endl;
-    if(ptr2 == list1.getHead()) cout << "ptr2IsHead" << endl;
     if(ptr3 == list1.getHead()) cout << "ptr3IsHead" << endl;
-    if(ptr7 == list1.getTail()) cout << "ptr4IsTail" << endl;
     list1.printAll();
     cout << "3: " << list1.advance(list1.getHead(), 2)->data << endl;
    
