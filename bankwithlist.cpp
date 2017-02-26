@@ -185,7 +185,7 @@ int main(){
             if (list.getHead()==NULL){
                 cout << "No More Accounts to delete! Thank you come again\n"; 
             } 
-            
+            list.printAll(); //debug
 		}
 		//DELETE by id
 		if(flag3 == 2){
@@ -201,11 +201,10 @@ int main(){
             } 
             list.printAll(); //debug
 		}
-<<<<<<< HEAD
+
 
 		else{}
-=======
->>>>>>> 44e90390f025baa7bdc3a59165e6fdaba114fca9
+
 	}
 	
     }
