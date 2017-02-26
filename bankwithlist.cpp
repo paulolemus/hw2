@@ -33,9 +33,24 @@ using namespace std;
 
 
 
-template <typename T>
-SNode<T>* SLinkedList<T>::findByAcct(const T& data, float acct){
-    SNode<T>* p = head;  
+// template <typename T>
+// // SNode<T>* findByAcct(const T& data, float acct, SLinkedList<BasicAccount> l){
+// SNode<T>* findByAcct(const T& data, float acct, SLinkedList<BasicAccount>* l){
+//     SNode<T>* p = l.getHead;  
+//     if(p ==NULL){
+//         return p; 
+//     }
+    
+//     cout << "acct is : " << acct << endl; 
+//     while(p->data.getAccountNum() != acct){
+//         p = p->next;
+//     }
+//     return p;
+// }
+
+
+SNode<BasicAccount>* findByAcct(SNode<BasicAccount>* data, float acct, SLinkedList<BasicAccount>* l){
+    SNode<BasicAccount>* p = l->getHead();  
     if(p ==NULL){
         return p; 
     }
@@ -45,8 +60,8 @@ SNode<T>* SLinkedList<T>::findByAcct(const T& data, float acct){
         p = p->next;
     }
     return p;
-}
 
+}
 
 int main(){
 
@@ -79,9 +94,13 @@ int main(){
 // 	float aByAcct = list.findByAcct(ba1, ac)->data.getAccountNum(); 
 // 	cout << a << endl; 
 
-    SNode<BasicAccount>* ptr = list.findByAcct(ba1, a);
+
+    SNode<BasicAccount>* ptr1 = list.getHead(); 
+    
+    SNode<BasicAccount>* ptr = findByAcct(ptr1, a, &list);
     cout<< "Welcome "<< ptr->data.getName() << "!"<< endl; 
     
 
 	return 0;
 }
+
