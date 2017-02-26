@@ -75,7 +75,7 @@ int main(){
 
     // MAIN LOOP GOES HERE
     while(flag != 0){
-	    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
         cout << "Welcome, please enter 1 for add, 2 for find, 3 for delete, 0 for quit" << endl;// Greet the teller, prompt what he would like to do
 	cin >> flag;
 
