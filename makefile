@@ -1,7 +1,7 @@
 # TEAM: AMERICA
 
 global: bankwithlist
-bankwithlist: bankwithlist.cpp singlylinked.h
+bankwithlist: bankwithlist.cpp BasicAccount.cpp
 testdriver: testdriver.cpp
 	g++ testdriver.cpp -o testdriver --std=c++11
 testdriver2: testdriver2.cpp
