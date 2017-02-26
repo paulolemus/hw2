@@ -47,7 +47,7 @@ SNode<BasicAccount>* findByName(SNode<BasicAccount>* data, string nm, SLinkedLis
 
 
 // FIXED ADD NODE FUNCTION GOES BENEATH HERE
-SNode<BasicAccount>* add(SLinkedList<BasicAccount> L, BasicAccount b){
+SNode<BasicAccount>* addNewAccount(SLinkedList<BasicAccount>& L, BasicAccount& b){
 	SNode<BasicAccount>* curr = L.getHead();
 	if(curr == NULL){
 		curr = L.append(b);
@@ -90,8 +90,8 @@ int main(){
 		cin >> accname;
 		cout << "Please input account balance" << endl;
 		cin >> accbalance;
-		BasicAccount acc = BasicAccount(accnum, accname, accbalance);
-		ptr = add(list, acc);	
+		BasicAccount ba(accnum, accname, accbalance);
+		ptr = addNewAccount(list, ba);	
 		if(ptr == NULL){
 			cout << "Adding account failed" << endl;
 		}
@@ -99,6 +99,9 @@ int main(){
 			cout << "Account added successfuly" << endl;
 			cout << ptr->data;
 		}
+		cout << "\nPress Enter to continue";
+		cin.ignore();
+		cin.get();
 	}
 	//FIND branch, finds an account by name or id, then deposit or withdraw if valid
 	if(flag == 2){
