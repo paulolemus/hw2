@@ -146,16 +146,21 @@ int main(){
 			long int i1;
 			cout << "Please enter id" << endl;
 			cin >> i1;
-			//find(i1);//find if id entered matches an account
+			//if(findByAcct(i1,list)){ //find if id entered matches an account
+			
 			//account found
-			//if(){
 				int flag5;
-				cout << "Valid Account found, would you like to deposit(1), or withdraw(2)" << endl;
+				//cout << findByAcct(i1,list)->data;
+				cout << "Valid Account found, would you like to deposit(1), or withdraw(2), or no action(0)?" << endl;
 				cin >> flag5;
 				//Deposit
-				if(flag5 == 1){}
+				if(flag5 == 1){
+					//findByAcct(i1,list)->data.deposit(i1);
+				}
 				//Withdraw
-				if(flag5 == 2){}
+				if(flag5 == 2){
+					//findByAcct(i1,list)->data.withdraw(i1);
+				}
 			
 			//}
 
@@ -196,8 +201,11 @@ int main(){
             } 
             list.printAll(); //debug
 		}
+<<<<<<< HEAD
 
 		else{}
+=======
+>>>>>>> 44e90390f025baa7bdc3a59165e6fdaba114fca9
 	}
 	
     }
