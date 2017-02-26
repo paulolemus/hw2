@@ -6,6 +6,11 @@
 #ifndef EE_SINGLYLINKED_H_
 #define EE_SINGLYLINKED_H_
 
+#include <iostream>
+#include <string>
+#include "BasicAccount.h"
+
+using namespace std;
 /* This file contains code for a singly linked list.
 */
 
@@ -44,6 +49,9 @@ class SLinkedList{
     SNode<T>* setTail(SNode<T>* p);
     SNode<T>* getHead();
     SNode<T>* setHead(SNode<T>* p);
+    
+    void      sort(SLinkedList list, BasicAccount* ba);
+    SNode<T>* findByAcct(const T& data, float acct);
 };
 
 /////////////////////////////////////////////////////
@@ -193,6 +201,7 @@ SNode<T>* SLinkedList<T>::find(const T& data){
     }
     return p;
 }
+
 
 /* Advance:
  * Return ptr to node n links ahead of p

@@ -5,6 +5,7 @@
 
 #ifndef BASICACCOUNT_H_
 #define BASICACCOUNT_H_
+#include <string>
 
 
 class BasicAccount{
