@@ -95,11 +95,12 @@ for the main while loop. I also contributed by cleaning up code.
 
 Jessie: 
 I'll start off the bat with honestly saying that as far as the working lines of code are 
-concerned, I probably have the least amount of the three of us that was my design. However, I did put in 
-a lot of time and effort into this assignment. It was very difficult for me to grasp the templates 
-at first. I finally reached out to the guys and told them how stuck I was and they helped me a lot. 
-After that it was down hill and I was able to create some functions that benefitted our group assignment.
-I also compiled all of our written work and prepared the files for the final submission. 
+concerned, I probably have the least amount of the three of us that was my original design. 
+It was very difficult for me to grasp the templates at first. I finally reached out to the guys and 
+told them how stuck I was and they helped me a lot. After that it was down hill and I was able to 
+create some functions that benefitted our group assignment.
+The guys helped me a lot with conceptualizing how the files would work together and with the 
+driver. I also compiled our written work and photos and prepared the files for the final submission. 
 
 Matt:
 
