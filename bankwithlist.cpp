@@ -76,8 +76,12 @@ int main(){
 
     // MAIN LOOP GOES HERE
     while(flag != 0){
-	    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-        cout << "Welcome, please enter 1 for add, 2 for find, 3 for delete, 0 for quit" << endl;// Greet the teller, prompt what he would like to do
+	    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+        cout << "Welcome, please enter:" << endl;
+        cout << "1 for add" << endl;
+        cout <<	"2 for find" << endl;
+	cout << "3 for delete" << endl;
+	cout << "0 for quit" << endl;// Greet the teller, prompt what he would like to do
 	cin >> flag;
 
 	//ADD branch, adds accounts that don't have an id already taken
@@ -171,7 +175,7 @@ int main(){
 			
 			}
 			else{
-			cout << "Could not find accout" << endl;
+			cout << "Could not find account" << endl;
 			}
 
 		}
@@ -223,7 +227,6 @@ int main(){
 	cin.ignore();
 	cin.get();
 	}
-	
     }
 	
 

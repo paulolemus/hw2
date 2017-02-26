@@ -11,7 +11,7 @@ allows the user to add, search for, or delete a BasicAccount.
 The user cannot add a bankaccount that has the same ID as an existing one.
 The user can search by name OR ID. If an account is found, the user is
 prompted if he/she would like to withdraw or deposit.
-The user can also delete an account.
+The user can also delete an account when given a name or ID.
 The program expects the user to enter valid entries to each input field.
 TLDR: It works pretty well.
 
@@ -44,6 +44,13 @@ The singly linked list is used in bankwithlist.cpp to create
 a linked list of BasicAccounts sorted by ID number.
 
 ## bankwithlist.cpp (Matthew, Jessie)
+Matthew - This file is our driver that will utilize the 
+classes found in singlylinked.h. I wrote the main loop that 
+will continue to ask the user to either add, find, or delete
+accounts until given a 0 input in which the program will 
+terminate. This file contains mostly input prompts and uses 
+if statements to redirect the user depending on those inputs.
+The functions and classes are called and tested using this driver.
 
 This file is responsible for interfacing the list functions with the bank account functions. 
 We tried our best to follow the template model that Paulo mentioned earlier. So in this file the "T" was 
@@ -84,7 +91,13 @@ I also learned to appreciate lists through this homework. They are much easier t
 than an array or vector. 
 
 Matt:
-
+From this homework assignment I learned about generic data structure 
+and how useful it can be when modifying code to do many things. I 
+also learned about Linked lists and how to write functions for them 
+that will search and modify them. I also learned about git and the
+workflow assosciated with working in a group. Although it doesn't
+necessarily pertain to the assignment, it was good for me to learn 
+how to code with a team.
 ## Contributions:
 Paulo:
 For this assignment, my main contribution was the linked list
@@ -103,6 +116,10 @@ The guys helped me a lot with conceptualizing how the files would work together 
 driver. I also compiled our written work and photos and prepared the files for the final submission. 
 
 Matt:
+I contributed by writing the main loop in the bankwithlist.cpp. I
+also helped troubleshoot the functions in bankwithlist.cpp that
+are unique to this homework assignment instead of being generic
+like the list. 
 
 ## Questions:
 Paulo:
@@ -121,3 +138,10 @@ Can we practice more templates in class? It was cool to go over the examples fro
 still a little hazy. 
 
 Matt:
+Is there advantages to using a doubly linked list over a singly linked
+list? I imagine having a search function for a singly linked list to 
+take a lot of time to find the element if the list is long and you
+have to start from the head and search every element. I read
+something about fibonacci numbers and optimization, is that used in
+lists? The advantage of doubly linked is that you can start anywhere
+and move anywhere.
