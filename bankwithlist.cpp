@@ -10,6 +10,7 @@
 using std::endl;
 using std::cout;
 using std::cin;
+<<<<<<< HEAD
 
 
 // FIXED ADD NODE FUNCTION GOES BENEATH HERE
@@ -27,6 +28,12 @@ SNode<BasicAccount>* findByAcct(SNode<BasicAccount>* data, float acct, SLinkedLi
     return p;
 
 }
+=======
+
+
+// FIXED ADD NODE FUNCTION GOES BENEATH HERE
+//void add(SLinkedList L, BasicAccount b){}
+
 
 int main(){
 
@@ -37,8 +44,21 @@ int main(){
     while(flag != 'q'){
         cout << "a = add, f = find, d = delete, q = quit" << endl;// Greet the teller, prompt what he would like to do
 	cin >> flag;
+>>>>>>> bf313d325f28c4d78fd1fd825e251218f17167c2
 
 
+<<<<<<< HEAD
+	SLinkedList<BasicAccount> list; //creates a list of type BasicAccount
+   	char flag = 'b';
+
+    // MAIN LOOP GOES HERE
+    while(flag != 'q'){
+        cout << "a = add, f = find, d = delete, q = quit" << endl;// Greet the teller, prompt what he would like to do
+	cin >> flag;
+
+
+=======
+>>>>>>> bf313d325f28c4d78fd1fd825e251218f17167c2
 	if(flag == 'a'){
 		long int accnum = 0;
 		std::string accname;
@@ -51,8 +71,11 @@ int main(){
 		cin >> accbalance;
 		BasicAccount acc = BasicAccount(accnum, accname, accbalance);
 		//add(list, acc);
+<<<<<<< HEAD
 		list.append(acc);
 		list.printAll();
+=======
+>>>>>>> bf313d325f28c4d78fd1fd825e251218f17167c2
 		cout << "Account added successfully" << endl;
 	}
 	if(flag == 'f'){
@@ -61,6 +84,7 @@ int main(){
 		cin >> flag2;
 
 		if(flag2 == 'n'){}
+<<<<<<< HEAD
 		if(flag2 == 'i'){
 		    cout << "What is your account number (see hints above^^): "; 
 	        float a =0; 
@@ -69,6 +93,9 @@ int main(){
             SNode<BasicAccount>* ptr = findByAcct(ptr1, a, &list);
             cout<< "Welcome "<< ptr->data.getName() << "!"<< endl; 
 		}
+=======
+		if(flag2 == 'i'){}
+>>>>>>> bf313d325f28c4d78fd1fd825e251218f17167c2
 		else{
 		cout << "Invalid input" << endl;
 		}
@@ -80,6 +107,7 @@ int main(){
 	
 	// "1 - Create account, 2 - Find a customer, 3 - exit
         
+<<<<<<< HEAD
 
         // Create Account:
         // enter Account ID:
@@ -89,6 +117,17 @@ int main(){
         //          if it exists, return error, continue to next loop
         //          if it is valid, insert and let teller know success
 
+=======
+
+        // Create Account:
+        // enter Account ID:
+        // enter Account Name:
+        // Enter new Account balance:
+        // // create ba object, check if the same if exists in list,
+        //          if it exists, return error, continue to next loop
+        //          if it is valid, insert and let teller know success
+
+>>>>>>> bf313d325f28c4d78fd1fd825e251218f17167c2
         // Find a customer:
         // "would you like to seach by account id or name?
         // 1 - ID, 2 - name
