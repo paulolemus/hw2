@@ -16,7 +16,7 @@ using std::cin;
 
 // FIXED ADD NODE FUNCTION GOES BENEATH HERE
 //void add(SLinkedList L, BasicAccount b){}
-SNode<BasicAccount>* findByAcct(SNode<BasicAccount>* data, float acct, SLinkedList<BasicAccount>* l){
+SNode<BasicAccount>* findByAcct(SNode<BasicAccount>* data, long int acct, SLinkedList<BasicAccount>* l){
     SNode<BasicAccount>* p = l->getHead();  
     if(p ==NULL){
         return p; 
@@ -45,7 +45,7 @@ SNode<BasicAccount>* findByName(SNode<BasicAccount>* data, string nm, SLinkedLis
 }
 
 template <typename T>
-SNode<T>* addNewAccount(SLinkedList<BasicAccount>* l, BasicAccount& ba){
+SNode<T>* addNewAccount(SLinkedList<BasicAccount>* l, BasicAccount ba){
     SNode<T>* ptr = l->getHead();
     if(ptr == NULL){
         ptr = l.append(ba);
@@ -115,7 +115,7 @@ int main(){
 
 		if(flag2 == 'i'){
 		    cout << "What is your account number (see hints above^^): "; 
-	        float a =0; 
+	        long int a =0; 
 	        cin>> a; 
 		    SNode<BasicAccount>* ptr1 = list.getHead(); 
             SNode<BasicAccount>* ptr = findByAcct(ptr1, a, &list);
@@ -147,7 +147,7 @@ int main(){
 
 		if(flag2 == 'i'){
 		    cout << "What is your account number? (see hints above^^): "; 
-	        float acctn =0; 
+	        long int acctn =0; 
 	        cin>> acctn; 
 		    SNode<BasicAccount>* ptr1 = list.getHead(); 
             SNode<BasicAccount>* ptr = findByAcct(ptr1, acctn, &list);
