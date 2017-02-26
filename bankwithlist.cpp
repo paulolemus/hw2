@@ -13,22 +13,33 @@ using std::cin;
 
 
 // FIXED ADD NODE FUNCTION GOES BENEATH HERE
-//void add(SLinkedList L, BasicAccount b){}
+void add(SLinkedList<BasicAccount> L, BasicAccount b){
+	SNode<BasicAccount>* curr = L.getHead();
+	if(curr == NULL){
+		L.append(b);
+	}
+	while(curr){
+		if(curr->data.getAccountNum() > b.getAccountNum()){
+			L.add(b, curr);
+		}
+		curr = curr->next;
+	}
+}
 
 
 int main(){
 
 	SLinkedList<BasicAccount> list; //creates a list of type BasicAccount
-   	char flag = 'b';
+   	int flag = 10;//flag for add,find,delete
 
     // MAIN LOOP GOES HERE
-    while(flag != 'q'){
-        cout << "a = add, f = find, d = delete, q = quit" << endl;// Greet the teller, prompt what he would like to do
+    while(flag != 0){
+        cout << "Welcome, please enter 1 for add, 2 for find, 3 for delete, 0 for quit" << endl;// Greet the teller, prompt what he would like to do
 	cin >> flag;
 
-
-	if(flag == 'a'){
-		long int accnum = 0;
+	//ADD branch, adds accounts that don't have an id already taken
+	if(flag == 1){
+		long int accnum = 0;	//enter account info
 		std::string accname;
 		float accbalance = 0;
 		cout << "Please input account number" << endl;
@@ -38,23 +49,70 @@ int main(){
 		cout << "Please input account balance" << endl;
 		cin >> accbalance;
 		BasicAccount acc = BasicAccount(accnum, accname, accbalance);
-		//add(list, acc);
-		cout << "Account added successfully" << endl;
+		add(list, acc);	
+		//cout << "Account added successfully" << endl;
+		//cout << "Adding account failed" << endl;
 	}
-	if(flag == 'f'){
-		char flag2 = 'a';
-		cout << "Search by name(n) or account id(i)?" << endl;
+	//FIND branch, finds an account by name or id, then deposit or withdraw if valid
+	if(flag == 2){
+		int flag2 = 0;
+		cout << "Search by name(1) or account id(2)?" << endl;
 		cin >> flag2;
+		
+		//FIND NAME branch	
+		if(flag2 == 1){
+			std::string s1;
+			cout << "Please enter name" << endl;
+			cin >> s1;
+		//	search();
+			//VALID NAME
+		//	if(search()){
+				int flag4 = 0;
+				cout << "Valid account found, would you like to deposit(1) or withdraw(2)?" << endl;
+				cin >> flag4;
+				//DEPOSIT	
+				if(flag4 == 1){}
+				//WITHDRAW
+				if(flag4 == 2){}
+		//	}
 
-		if(flag2 == 'n'){}
-		if(flag2 == 'i'){}
+		}
+		//FIND ID branch
+		if(flag2 == 2){
+			long int i1;
+			cout << "Please enter id" << endl;
+			cin >> i1;
+			//find(i1);//find if id entered matches an account
+			//account found
+			//if(){
+				int flag5;
+				cout << "Valid Account found, would you like to deposit(1), or withdraw(2)" << endl;
+				cin >> flag5;
+				//Deposit
+				if(flag5 == 1){}
+				//Withdraw
+				if(flag5 == 2){}
+			
+			//}
+
+		}
+		//INVALID
 		else{
 		cout << "Invalid input" << endl;
 		}
 		
 	}
-	if(flag == 'd'){
-		cout << "Delete by name() or account id(i)?" << endl;
+
+	//DELETE branch, find an account by name or id and deletes
+	if(flag == 3){
+		int flag3 = 0;
+		cout << "Delete by name(1) or account id(2)?" << endl;
+		cin >> flag3;
+		//DELETE by name
+		if(flag3 == 1){}
+		//DELETE by id
+		if(flag3 == 2){}
+		else{}
 	}
 	
 	// "1 - Create account, 2 - Find a customer, 3 - exit
