@@ -7,6 +7,7 @@
 #include "singlylinked.h"
 #include "BasicAccount.h"
 #include <string>
+using namespace std; 
 using std::endl;
 using std::cout;
 using std::cin;
@@ -29,19 +30,19 @@ SNode<BasicAccount>* findByAcct(SNode<BasicAccount>* data, float acct, SLinkedLi
 
 }
 
-// SNode<BasicAccount>* findByAcct(SNode<BasicAccount>* data, string nm, SLinkedList<BasicAccount>* l){
-//     SNode<BasicAccount>* p = l->getHead();  
-//     if(p ==NULL){
-//         return p; 
-//     }
+SNode<BasicAccount>* findByName(SNode<BasicAccount>* data, string nm, SLinkedList<BasicAccount>* l){
+    SNode<BasicAccount>* p = l->getHead();  
+    if(p ==NULL){
+        return p; 
+    }
     
-//     cout << "acct is : " << acct << endl; 
-//     while(p->data.getName() != nm){
-//         p = p->next;
-//     }
-//     return p;
+    cout << "name is : " << nm << endl; 
+    while(p->data.getName() != nm){
+        p = p->next;
+    }
+    return p;
 
-// }
+}
 
 
 
@@ -83,7 +84,14 @@ int main(){
 		cout << "Search by name(n) or account id(i)?" << endl;
 		cin >> flag2;
 
-		if(flag2 == 'n'){}
+		if(flag2 == 'n'){
+		    cout << "What is your name (see hints above^^): "; 
+	        string name;  
+	        cin>> name; 
+		    SNode<BasicAccount>* ptr1 = list.getHead(); 
+            SNode<BasicAccount>* ptr = findByName(ptr1, name, &list);
+            cout<< "Welcome "<< ptr->data.getName() << "!"<< endl; 
+		}
 
 		if(flag2 == 'i'){
 		    cout << "What is your account number (see hints above^^): "; 
@@ -93,8 +101,6 @@ int main(){
             SNode<BasicAccount>* ptr = findByAcct(ptr1, a, &list);
             cout<< "Welcome "<< ptr->data.getName() << "!"<< endl; 
 		}
-
-		if(flag2 == 'i'){}
 
 		else{
 		cout << "Invalid input" << endl;
