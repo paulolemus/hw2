@@ -36,6 +36,7 @@ SNode<T>* searchById(SLinkedList<T>& list, long int id);
 template <typename T>
 SNode<T>* searchByName(SLinkedList<T>& list, string name);
 
+
 /* depositOrWithdraw:
  * Prompts user to withdraw or deposit money into an
  * account given via pointer to node.
@@ -108,9 +109,6 @@ int main(){
                 cout << "\nAccount deleted.\n\n";
             }
             else cout << "\nNo action taken.\n\n";
-            cout << "Press Enter to continue";
-            cin.ignore();
-            cin.get();
         }
 
         /* Find an existing account by name or ID.
@@ -155,46 +153,43 @@ int main(){
             cout << "Found account. Details below:\n\n";
             cout << ptr->data;
             depositOrWithdraw(ptr);
-        cout << "Press Enter to continue";
-        cin.ignore();
-        cin.get();
-    }
-
-    /* Add a new account to the list. This first checks
-     * if the account is available by ID.
-     * If it is, it adds it, otherwise it indicates the
-     * account id is taken.
-     */
-    else if(choice == 1){
-        long int id;
-        string   name;
-        float    balance;
-        SNode<BasicAccount>* ptr;
-
-        cout << "\nTo create a new account, provide the following:\n";
-        cout << "Account id\t: ";
-        cin >> id;
-        cout << "Account name\t: ";
-        cin >> name;
-        cout << "Account balance\t: ";
-        cin >>balance;
-        BasicAccount ba(id, name, balance);
-        ptr = addNewAccount(list, ba);
-        if(ptr == NULL){
-            cout << "\nFailed to add account. ID already exists.\n";
         }
-        else{
-            cout << "\nAccount successfully added.\n";
-            cout << ptr->data;
+
+        /* Add a new account to the list. This first checks
+         * if the account is available by ID.
+         * If it is, it adds it, otherwise it indicates the
+         * account id is taken.
+         */
+        else if(choice == 1){
+            long int id;
+            string   name;
+            float    balance;
+            SNode<BasicAccount>* ptr;
+
+            cout << "\nTo create a new account, provide the following:\n";
+            cout << "Account id\t: ";
+            cin >> id;
+            cout << "Account name\t: ";
+            cin >> name;
+            cout << "Account balance\t: ";
+            cin >>balance;
+            BasicAccount ba(id, name, balance);
+            ptr = addNewAccount(list, ba);
+            if(ptr == NULL){
+                cout << "\nFailed to add account. ID already exists.\n";
+            }
+            else{
+                cout << "\nAccount successfully added.\n";
+                cout << ptr->data;
+            }
         }
         cout << "\nPress Enter to continue";
         cin.ignore();
         cin.get();
     }
-}
 
-cout << "\n\nGoodbye!\n\n";
-return 0;
+    cout << "\n\nGoodbye!\n\n";
+    return 0;
 }
 
 
