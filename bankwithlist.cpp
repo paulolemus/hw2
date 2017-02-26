@@ -75,6 +75,7 @@ int main(){
 
     // MAIN LOOP GOES HERE
     while(flag != 0){
+	    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
         cout << "Welcome, please enter 1 for add, 2 for find, 3 for delete, 0 for quit" << endl;// Greet the teller, prompt what he would like to do
 	cin >> flag;
 
@@ -93,7 +94,7 @@ int main(){
 		BasicAccount ba(accnum, accname, accbalance);
 		ptr = addNewAccount(list, ba);	
 		if(ptr == NULL){
-			cout << "Adding account failed" << endl;
+			cout << "Adding account failed, account number already taken" << endl;
 		}
 		else{
 			cout << "Account added successfuly" << endl;
@@ -114,16 +115,28 @@ int main(){
 			std::string s1;
 			cout << "Please enter name" << endl;
 			cin >> s1;
-		//	findByName();
+
 			//VALID NAME
-		//	if(search()){
+		//	if(findByName(s1, list)){
 				int flag4 = 0;
+				float ammount = 0;
+			//	cout << findByName(s1, list)->data;
 				cout << "Valid account found, would you like to deposit(1) or withdraw(2)?" << endl;
 				cin >> flag4;
 				//DEPOSIT	
-				if(flag4 == 1){}
+				if(flag4 == 1){
+					cout << "How much would you like to deposit?" << endl;
+					cin >> ammount;
+			//		findByName(s1, list)->data.deposit(ammount);
+
+				}
 				//WITHDRAW
-				if(flag4 == 2){}
+				if(flag4 == 2){
+					cout << "How much would you like to deposit?" << endl;
+					cin >> ammount;
+			//		findByName(s1, list)->data.deposit(ammount);
+
+				}
 		//	}
 
 		}
@@ -146,29 +159,6 @@ int main(){
 			//}
 
 		}
-		//INVALID
-		if(flag2 == 'n'){
-		    cout << "What is your name (see hints above^^): "; 
-	        string name;  
-	        cin>> name; 
-		    SNode<BasicAccount>* ptr1 = list.getHead(); 
-            SNode<BasicAccount>* ptr = findByName(ptr1, name, &list);
-            cout<< "Welcome "<< ptr->data.getName() << "!"<< endl; 
-		}
-
-		if(flag2 == 'i'){
-		    cout << "What is your account number (see hints above^^): "; 
-	        float a =0; 
-	        cin>> a; 
-		    SNode<BasicAccount>* ptr1 = list.getHead(); 
-            SNode<BasicAccount>* ptr = findByAcct(ptr1, a, &list);
-            cout<< "Welcome "<< ptr->data.getName() << "!"<< endl; 
-		}
-
-		else{
-		cout << "Invalid input" << endl;
-		}
-		
 	}
 
 	//DELETE branch, find an account by name or id and deletes
@@ -177,48 +167,22 @@ int main(){
 		cout << "Delete by name(1) or account id(2)?" << endl;
 		cin >> flag3;
 		//DELETE by name
-		if(flag3 == 1){}
+		if(flag3 == 1){
+			string s2;
+			cout << "Please enter name" << endl;
+			cin >> s2;
+		//	list.erase(findByName(list, s2));
+		}
 		//DELETE by id
-		if(flag3 == 2){}
+		if(flag3 == 2){
+			long int lint;
+			cout << "Please enter id" << endl;
+			cin >> lint;
+		//	list.erase(findByAcct(lint,list);
+		}
 		else{}
 	}
 	
-	// "1 - Create account, 2 - Find a customer, 3 - exit
-        
-
-
-        // Create Account:
-        // enter Account ID:
-        // enter Account Name:
-        // Enter new Account balance:
-        // // create ba object, check if the same if exists in list,
-        //          if it exists, return error, continue to next loop
-        //          if it is valid, insert and let teller know success
-
-
-
-        // Create Account:
-        // enter Account ID:
-        // enter Account Name:
-        // Enter new Account balance:
-        // // create ba object, check if the same if exists in list,
-        //          if it exists, return error, continue to next loop
-        //          if it is valid, insert and let teller know success
-
-
-        // Find a customer:
-        // "would you like to seach by account id or name?
-        // 1 - ID, 2 - name
-        //
-        // ID: 
-        //      have user enter id. Give it and the list to jessies 
-        //      find by id function.
-        //       
-        //      next prompt user if he would like to withdraw, deposit
-        //      or return.
-        //
-        // name: Same thing as above but use jessies find by name function
-        //
     }
 	
 
