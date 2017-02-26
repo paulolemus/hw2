@@ -44,25 +44,25 @@ SNode<BasicAccount>* findByName(SNode<BasicAccount>* data, string nm, SLinkedLis
 
 }
 
-// template <typename T>
-// SNode<T>* addNewAccount(SLinkedList<BasicAccount>* l, BasicAccount& ba){
-//     SNode<T>* ptr = l->getHead();
-//     if(ptr == NULL){
-//         ptr = l.append(ba);
-//         return ptr;
-//     }
-//     while(ptr->data.getAccountNum() < ba.getAccountNum()){
-//         ptr = l->advance(ptr, 1);
-//         if(!ptr) break;
-//     }
-//     if(ptr && ptr->data.getAccountNum() == ba.getAccountNum()) return NULL;
-//     if(ptr == NULL){
-//         ptr = l->append(ba);
-//         return ptr;
-//     }
-//     ptr = l->insert(ba, ptr);
-//     return ptr;
-// }
+template <typename T>
+SNode<T>* addNewAccount(SLinkedList<BasicAccount>* l, BasicAccount& ba){
+    SNode<T>* ptr = l->getHead();
+    if(ptr == NULL){
+        ptr = l.append(ba);
+        return ptr;
+    }
+    while(ptr->data.getAccountNum() < ba.getAccountNum()){
+        ptr = l->advance(ptr, 1);
+        if(!ptr) break;
+    }
+    if(ptr && ptr->data.getAccountNum() == ba.getAccountNum()) return NULL;
+    if(ptr == NULL){
+        ptr = l->append(ba);
+        return ptr;
+    }
+    ptr = l->insert(ba, ptr);
+    return ptr;
+}
 
 
 
@@ -147,10 +147,10 @@ int main(){
 
 		if(flag2 == 'i'){
 		    cout << "What is your account number? (see hints above^^): "; 
-	        float a =0; 
-	        cin>> a; 
+	        float acctn =0; 
+	        cin>> acctn; 
 		    SNode<BasicAccount>* ptr1 = list.getHead(); 
-            SNode<BasicAccount>* ptr = findByAcct(ptr1, a, &list);
+            SNode<BasicAccount>* ptr = findByAcct(ptr1, acctn, &list);
             cout<< "Erasing "<< ptr->data.getName() << endl; 
             list.erase(ptr);
             if (list.getHead()==NULL){
