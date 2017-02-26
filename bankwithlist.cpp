@@ -47,7 +47,7 @@ SNode<BasicAccount>* findByName(SNode<BasicAccount>* data, string nm, SLinkedLis
 
 
 // FIXED ADD NODE FUNCTION GOES BENEATH HERE
-SNode<BasicAccount>* add(SLinkedList<BasicAccount> L, BasicAccount b){
+SNode<BasicAccount>* addNewAccount(SLinkedList<BasicAccount>& L, BasicAccount& b){
 	SNode<BasicAccount>* curr = L.getHead();
 	if(curr == NULL){
 		curr = L.append(b);
@@ -90,15 +90,19 @@ int main(){
 		cin >> accname;
 		cout << "Please input account balance" << endl;
 		cin >> accbalance;
-		BasicAccount acc = BasicAccount(accnum, accname, accbalance);
-		ptr = add(list, acc);	
+		BasicAccount ba(accnum, accname, accbalance);
+		ptr = addNewAccount(list, ba);	
 		if(ptr == NULL){
 			cout << "Adding account failed" << endl;
 		}
 		else{
 			cout << "Account added successfuly" << endl;
 			cout << ptr->data;
+			
 		}
+		cout << "\nPress Enter to continue";
+		cin.ignore();
+		cin.get();
 	}
 	//FIND branch, finds an account by name or id, then deposit or withdraw if valid
 	if(flag == 2){
@@ -174,9 +178,33 @@ int main(){
 		cout << "Delete by name(1) or account id(2)?" << endl;
 		cin >> flag3;
 		//DELETE by name
-		if(flag3 == 1){}
+		if(flag3 == 1){
+			cout << "What is your name? (see hints above^^): "; 
+	        string name;  
+	        cin>> name; 
+		    SNode<BasicAccount>* ptr1 = list.getHead(); 
+            SNode<BasicAccount>* ptr = findByName(ptr1, name, &list);
+            cout<< "Erasing "<< ptr->data.getName() << endl; 
+            list.erase(ptr);
+            if (list.getHead()==NULL){
+                cout << "No More Accounts to delete! Thank you come again\n"; 
+            } 
+            list.printAll(); //debug
+		}
 		//DELETE by id
-		if(flag3 == 2){}
+		if(flag3 == 2){
+			cout << "What is your account number? (see hints above^^): "; 
+	        float acctn =0; 
+	        cin>> acctn; 
+		    SNode<BasicAccount>* ptr1 = list.getHead(); 
+            SNode<BasicAccount>* ptr = findByAcct(ptr1, acctn, &list);
+            cout<< "Erasing "<< ptr->data.getName() << endl; 
+            list.erase(ptr);
+            if (list.getHead()==NULL){
+                cout << "No More Accounts to delete! Thank you come again\n"; 
+            } 
+            list.printAll(); //debug
+		}
 		else{}
 	}
 	
