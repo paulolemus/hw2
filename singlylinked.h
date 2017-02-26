@@ -126,6 +126,13 @@ SNode<T>* SLinkedList<T>::add(const T& data, SNode<T>* p){
 
 /* Erase:
  * Erase using a ptr given to the node to erase
+ *
+ * 1. Search for the node provided via pointer.
+ *    Save a pointer to the previous node.
+ * 2. When the node is found, we use the previous node's
+ *    pointer to point across the node to delete.
+ * 3. Delete the node given.
+ * 4. Return a pointer to the previous node.
  */
 template <typename T>
 SNode<T>* SLinkedList<T>::erase(SNode<T>* p){
@@ -178,6 +185,10 @@ SNode<T>* SLinkedList<T>::erase(const T& data){
 
 /* Find:
  * from p to null, return node with data
+ * Search through list, comparing each node's
+ * data with the data given to the function.
+ * If there is a match, return the pointer to the node, 
+ * otherwise return null.
  */
 template <typename T>
 SNode<T>* SLinkedList<T>::find(const T& data, SNode<T>* p){
@@ -215,6 +226,11 @@ SNode<T>* SLinkedList<T>::advance(SNode<T>* p, int n){
 
 /* Append:
  * This adds a new node to the end of the list
+ * 1. Check headcase, simply make a new node as head.
+ * 2. If the node after head is null, make the next the
+ *    new node and set it equal to the tail.
+ * 3. If the tail is not null, make a new node after the
+ *    tail and point the tail to it.
  */
 template <typename T>
 SNode<T>* SLinkedList<T>::append(const T& data){

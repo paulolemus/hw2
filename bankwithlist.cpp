@@ -47,24 +47,43 @@ SNode<BasicAccount>* findByName(SNode<BasicAccount>* data, string nm, SLinkedLis
 
 
 // FIXED ADD NODE FUNCTION GOES BENEATH HERE
-//void add(SLinkedList L, BasicAccount b){}
+SNode<BasicAccount>* add(SLinkedList<BasicAccount> L, BasicAccount b){
+	SNode<BasicAccount>* curr = L.getHead();
+	if(curr == NULL){
+		curr = L.append(b);
+		return curr;
+	}
+	while(curr->data.getAccountNum() < b.getAccountNum()){
+		curr = L.advance(curr, 1);
+		if(!curr) break;
+	}	
+	if(curr && curr->data.getAccountNum() == b.getAccountNum())return NULL;
+
+	if(curr == NULL){
+		curr = L.append(b);
+		return curr;
+	}
+	curr = L.insert(b, curr);
+	return curr;
+}
 
 
 int main(){
 
 	SLinkedList<BasicAccount> list; //creates a list of type BasicAccount
-   	char flag = 'b';
+   	int flag = 10;//flag for add,find,delete
 
     // MAIN LOOP GOES HERE
-    while(flag != 'q'){
-        cout << "a = add, f = find, d = delete, q = quit" << endl;// Greet the teller, prompt what he would like to do
+    while(flag != 0){
+        cout << "Welcome, please enter 1 for add, 2 for find, 3 for delete, 0 for quit" << endl;// Greet the teller, prompt what he would like to do
 	cin >> flag;
 
-
-	if(flag == 'a'){
-		long int accnum = 0;
+	//ADD branch, adds accounts that don't have an id already taken
+	if(flag == 1){
+		long int accnum = 0;	//enter account info
 		std::string accname;
 		float accbalance = 0;
+		SNode<BasicAccount>* ptr;
 		cout << "Please input account number" << endl;
 		cin >> accnum;
 		cout << "Please input account name" << endl;
@@ -72,18 +91,59 @@ int main(){
 		cout << "Please input account balance" << endl;
 		cin >> accbalance;
 		BasicAccount acc = BasicAccount(accnum, accname, accbalance);
-		//add(list, acc);
-
-		list.append(acc);
-		list.printAll();
-
-		cout << "Account added successfully" << endl;
+		ptr = add(list, acc);	
+		if(ptr == NULL){
+			cout << "Adding account failed" << endl;
+		}
+		else{
+			cout << "Account added successfuly" << endl;
+			cout << ptr->data;
+		}
 	}
-	if(flag == 'f'){
-		char flag2 = 'a';
-		cout << "Search by name(n) or account id(i)?" << endl;
+	//FIND branch, finds an account by name or id, then deposit or withdraw if valid
+	if(flag == 2){
+		int flag2 = 0;
+		cout << "Search by name(1) or account id(2)?" << endl;
 		cin >> flag2;
+		
+		//FIND NAME branch	
+		if(flag2 == 1){
+			std::string s1;
+			cout << "Please enter name" << endl;
+			cin >> s1;
+		//	findByName();
+			//VALID NAME
+		//	if(search()){
+				int flag4 = 0;
+				cout << "Valid account found, would you like to deposit(1) or withdraw(2)?" << endl;
+				cin >> flag4;
+				//DEPOSIT	
+				if(flag4 == 1){}
+				//WITHDRAW
+				if(flag4 == 2){}
+		//	}
 
+		}
+		//FIND ID branch
+		if(flag2 == 2){
+			long int i1;
+			cout << "Please enter id" << endl;
+			cin >> i1;
+			//find(i1);//find if id entered matches an account
+			//account found
+			//if(){
+				int flag5;
+				cout << "Valid Account found, would you like to deposit(1), or withdraw(2)" << endl;
+				cin >> flag5;
+				//Deposit
+				if(flag5 == 1){}
+				//Withdraw
+				if(flag5 == 2){}
+			
+			//}
+
+		}
+		//INVALID
 		if(flag2 == 'n'){
 		    cout << "What is your name (see hints above^^): "; 
 	        string name;  
@@ -107,8 +167,17 @@ int main(){
 		}
 		
 	}
-	if(flag == 'd'){
-		cout << "Delete by name() or account id(i)?" << endl;
+
+	//DELETE branch, find an account by name or id and deletes
+	if(flag == 3){
+		int flag3 = 0;
+		cout << "Delete by name(1) or account id(2)?" << endl;
+		cin >> flag3;
+		//DELETE by name
+		if(flag3 == 1){}
+		//DELETE by id
+		if(flag3 == 2){}
+		else{}
 	}
 	
 	// "1 - Create account, 2 - Find a customer, 3 - exit
