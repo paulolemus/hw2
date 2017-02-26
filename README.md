@@ -20,7 +20,6 @@ TLDR: It works pretty well.
 bankwithlist.cpp
 BasicAccount.cpp
 BasicAccount.h
-singlylinked.cpp
 singlylinked.h
 makefile
 README.md
@@ -65,7 +64,7 @@ project and some of us were working remotely, we wanted to avoid altering those 
 possible. So there were several times where it became very difficult to manipulate a function solely
 based on the design of a seperate functions' return or input. 
 
-## BasicAccount.cpp (Matthew, Jessie, Paulo)
+## BasicAccount.cpp & BasicAccount.h (Matthew, Jessie, Paulo)
 
 This contains the bank account class that was used for our previous lab.
 
