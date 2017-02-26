@@ -7,9 +7,43 @@
 #include "singlylinked.h"
 #include "BasicAccount.h"
 #include <string>
+using namespace std; 
 using std::endl;
 using std::cout;
 using std::cin;
+
+
+
+// FIXED ADD NODE FUNCTION GOES BENEATH HERE
+//void add(SLinkedList L, BasicAccount b){}
+SNode<BasicAccount>* findByAcct(SNode<BasicAccount>* data, float acct, SLinkedList<BasicAccount>* l){
+    SNode<BasicAccount>* p = l->getHead();  
+    if(p ==NULL){
+        return p; 
+    }
+    
+    cout << "acct is : " << acct << endl; 
+    while(p->data.getAccountNum() != acct){
+        p = p->next;
+    }
+    return p;
+
+}
+
+SNode<BasicAccount>* findByName(SNode<BasicAccount>* data, string nm, SLinkedList<BasicAccount>* l){
+    SNode<BasicAccount>* p = l->getHead();  
+    if(p ==NULL){
+        return p; 
+    }
+    
+    cout << "name is : " << nm << endl; 
+    while(p->data.getName() != nm){
+        p = p->next;
+    }
+    return p;
+
+}
+
 
 
 // FIXED ADD NODE FUNCTION GOES BENEATH HERE
@@ -52,6 +86,12 @@ int main(){
 		add(list, acc);	
 		//cout << "Account added successfully" << endl;
 		//cout << "Adding account failed" << endl;
+		//add(list, acc);
+
+		list.append(acc);
+		list.printAll();
+
+		cout << "Account added successfully" << endl;
 	}
 	//FIND branch, finds an account by name or id, then deposit or withdraw if valid
 	if(flag == 2){
@@ -97,6 +137,24 @@ int main(){
 
 		}
 		//INVALID
+		if(flag2 == 'n'){
+		    cout << "What is your name (see hints above^^): "; 
+	        string name;  
+	        cin>> name; 
+		    SNode<BasicAccount>* ptr1 = list.getHead(); 
+            SNode<BasicAccount>* ptr = findByName(ptr1, name, &list);
+            cout<< "Welcome "<< ptr->data.getName() << "!"<< endl; 
+		}
+
+		if(flag2 == 'i'){
+		    cout << "What is your account number (see hints above^^): "; 
+	        float a =0; 
+	        cin>> a; 
+		    SNode<BasicAccount>* ptr1 = list.getHead(); 
+            SNode<BasicAccount>* ptr = findByAcct(ptr1, a, &list);
+            cout<< "Welcome "<< ptr->data.getName() << "!"<< endl; 
+		}
+
 		else{
 		cout << "Invalid input" << endl;
 		}
@@ -118,6 +176,7 @@ int main(){
 	// "1 - Create account, 2 - Find a customer, 3 - exit
         
 
+
         // Create Account:
         // enter Account ID:
         // enter Account Name:
@@ -125,6 +184,17 @@ int main(){
         // // create ba object, check if the same if exists in list,
         //          if it exists, return error, continue to next loop
         //          if it is valid, insert and let teller know success
+
+
+
+        // Create Account:
+        // enter Account ID:
+        // enter Account Name:
+        // Enter new Account balance:
+        // // create ba object, check if the same if exists in list,
+        //          if it exists, return error, continue to next loop
+        //          if it is valid, insert and let teller know success
+
 
         // Find a customer:
         // "would you like to seach by account id or name?

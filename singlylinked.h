@@ -7,10 +7,7 @@
 #define EE_SINGLYLINKED_H_
 
 #include <iostream>
-#include <string>
-#include "BasicAccount.h"
-
-using namespace std;
+// using namespace std;
 /* This file contains code for a singly linked list.
 */
 
@@ -49,6 +46,7 @@ class SLinkedList{
     SNode<T>* setTail(SNode<T>* p);
     SNode<T>* getHead();
     SNode<T>* setHead(SNode<T>* p);
+
 };
 
 /////////////////////////////////////////////////////
