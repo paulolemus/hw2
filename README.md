@@ -52,6 +52,19 @@ terminate. This file contains mostly input prompts and uses
 if statements to redirect the user depending on those inputs.
 The functions and classes are called and tested using this driver.
 
+This file is responsible for interfacing the list functions with the bank account functions. 
+We tried our best to follow the template model that Paulo mentioned earlier. So in this file the "T" was 
+our "BankAccount" type. This added a level of complexity to mapping what each varible type was and 
+where it came from. Jessie primarily worked on the functions and Matt worked on the logic flow
+for the driver. 
+
+Jessie -
+The most challenging part for this file for me was writing functions that would 
+agree with the format of the singlylinked.h and BankAccount files. Since this was a group
+project and some of us were working remotely, we wanted to avoid altering those files as much as 
+possible. So there were several times where it became very difficult to manipulate a function solely
+based on the design of a seperate functions' return or input. 
+
 ## BasicAccount.cpp (Matthew, Jessie, Paulo)
 
 This contains the bank account class that was used for our previous lab.
@@ -70,7 +83,12 @@ I also am learning how to write code on paper. That may sound silly,
 but I've found from this assignment that getting better at writing on
 paper speeds up the time it takes to write and code drastically.
 
-Jessie:
+Jessie: 
+This homework I learned how to implement the templates that we discussed in lab to
+our bank account and list lab. I also learned how difficult, yet crucial it is to be able to work with a 
+provided code that you shouldn't or sometimes can't change.  
+I also learned to appreciate lists through this homework. They are much easier to manipulate 
+than an array or vector. 
 
 Matt:
 From this homework assignment I learned about generic data structure 
@@ -88,7 +106,14 @@ logic for the driver bankwithlist.cpp by writing out the Suedocode
 for some of the functions used, as well as a "map" of the logic
 for the main while loop. I also contributed by cleaning up code.
 
-Jessie:
+Jessie: 
+I'll start off the bat with honestly saying that as far as the working lines of code are 
+concerned, I probably have the least amount of the three of us that was my design. However, I did put in 
+a lot of time and effort into this assignment. It was very difficult for me to grasp the templates 
+at first. I finally reached out to the guys and told them how stuck I was and they helped me a lot. 
+After that it was down hill and I was able to create some functions that benefitted our group assignment.
+I also compiled all of our written work and prepared the files for the final submission. 
+
 Matt:
 I contributed by writing the main loop in the bankwithlist.cpp. I
 also helped troubleshoot the functions in bankwithlist.cpp that
@@ -107,7 +132,10 @@ list of BankAccount objects, which have their own fields? How would a user
 search by a parameter IN the bankaccount, without writing a function
 separately for each parameter?
 
-Jessie:
+Jessie: 
+Can we practice more templates in class? It was cool to go over the examples from the slides but it's 
+still a little hazy. 
+
 Matt:
 Is there advantages to using a doubly linked list over a singly linked
 list? I imagine having a search function for a singly linked list to 
