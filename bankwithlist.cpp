@@ -13,17 +13,51 @@ using std::cin;
 
 
 // FIXED ADD NODE FUNCTION GOES BENEATH HERE
-
+//void add(SLinkedList L, BasicAccount b){}
 
 
 int main(){
 
 	SLinkedList<BasicAccount> list; //creates a list of type BasicAccount
-    
+   	char flag = 'b';
+
     // MAIN LOOP GOES HERE
-    while(true){
-        // Greet the teller, prompt what he would like to do
-        // "1 - Create account, 2 - Find a customer, 3 - exit
+    while(flag != 'q'){
+        cout << "a = add, f = find, d = delete, q = quit" << endl;// Greet the teller, prompt what he would like to do
+	cin >> flag;
+
+
+	if(flag == 'a'){
+		long int accnum = 0;
+		std::string accname;
+		float accbalance = 0;
+		cout << "Please input account number" << endl;
+		cin >> accnum;
+		cout << "Please input account name" << endl;
+		cin >> accname;
+		cout << "Please input account balance" << endl;
+		cin >> accbalance;
+		BasicAccount acc = BasicAccount(accnum, accname, accbalance);
+		//add(list, acc);
+		cout << "Account added successfully" << endl;
+	}
+	if(flag == 'f'){
+		char flag2 = 'a';
+		cout << "Search by name(n) or account id(i)?" << endl;
+		cin >> flag2;
+
+		if(flag2 == 'n'){}
+		if(flag2 == 'i'){}
+		else{
+		cout << "Invalid input" << endl;
+		}
+		
+	}
+	if(flag == 'd'){
+		cout << "Delete by name() or account id(i)?" << endl;
+	}
+	
+	// "1 - Create account, 2 - Find a customer, 3 - exit
         
 
         // Create Account:
