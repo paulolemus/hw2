@@ -47,17 +47,24 @@ SNode<BasicAccount>* findByName(SNode<BasicAccount>* data, string nm, SLinkedLis
 
 
 // FIXED ADD NODE FUNCTION GOES BENEATH HERE
-void add(SLinkedList<BasicAccount> L, BasicAccount b){
+SNode<BasicAccount>* add(SLinkedList<BasicAccount> L, BasicAccount b){
 	SNode<BasicAccount>* curr = L.getHead();
 	if(curr == NULL){
-		L.append(b);
+		curr = L.append(b);
+		return curr;
 	}
-	while(curr){
-		if(curr->data.getAccountNum() > b.getAccountNum()){
-			L.add(b, curr);
-		}
-		curr = curr->next;
+	while(curr->data.getAccountNum() < b.getAccountNum()){
+		curr = L.advance(curr, 1);
+		if(!curr) break;
+	}	
+	if(curr && curr->data.getAccountNum() == b.getAccountNum())return NULL;
+
+	if(curr == NULL){
+		curr = L.append(b);
+		return curr;
 	}
+	curr = L.insert(b, curr);
+	return curr;
 }
 
 
@@ -76,6 +83,7 @@ int main(){
 		long int accnum = 0;	//enter account info
 		std::string accname;
 		float accbalance = 0;
+		SNode<BasicAccount>* ptr;
 		cout << "Please input account number" << endl;
 		cin >> accnum;
 		cout << "Please input account name" << endl;
@@ -83,15 +91,14 @@ int main(){
 		cout << "Please input account balance" << endl;
 		cin >> accbalance;
 		BasicAccount acc = BasicAccount(accnum, accname, accbalance);
-		add(list, acc);	
-		//cout << "Account added successfully" << endl;
-		//cout << "Adding account failed" << endl;
-		//add(list, acc);
-
-		list.append(acc);
-		list.printAll();
-
-		cout << "Account added successfully" << endl;
+		ptr = add(list, acc);	
+		if(ptr == NULL){
+			cout << "Adding account failed" << endl;
+		}
+		else{
+			cout << "Account added successfuly" << endl;
+			cout << ptr->data;
+		}
 	}
 	//FIND branch, finds an account by name or id, then deposit or withdraw if valid
 	if(flag == 2){
@@ -104,7 +111,7 @@ int main(){
 			std::string s1;
 			cout << "Please enter name" << endl;
 			cin >> s1;
-		//	search();
+		//	findByName();
 			//VALID NAME
 		//	if(search()){
 				int flag4 = 0;
