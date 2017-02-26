@@ -67,6 +67,14 @@ int main(){
         /* Break loop to exit code */
         if(choice == 4) break;
 
+        /* Delete an existing customer:
+         * This block allows the user to first search
+         * through the list of accounts using name or ID,
+         * then displays the account information before
+         * requesting confirmation if this is the account
+         * to delete. If it is, it is deleted. Otherwise,
+         * no action is taken.
+         */
         else if(choice == 3){
             string confirm;
             string nameOrId;
@@ -187,7 +195,6 @@ int main(){
         cin.ignore();
         cin.get();
     }
-
     cout << "\n\nGoodbye!\n\n";
     return 0;
 }
