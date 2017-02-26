@@ -16,28 +16,29 @@ using std::cin;
 
 // FIXED ADD NODE FUNCTION GOES BENEATH HERE
 //void add(SLinkedList L, BasicAccount b){}
-SNode<BasicAccount>* findByAcct(SNode<BasicAccount>* data, float acct, SLinkedList<BasicAccount>* l){
-    SNode<BasicAccount>* p = l->getHead();  
-    if(p ==NULL){
+SNode<BasicAccount>* findByAcct(long int acct, SLinkedList<BasicAccount>& L){
+    SNode<BasicAccount>* p = L.getHead();  
+    if(p == NULL){
         return p; 
-    }
-    
-    cout << "acct is : " << acct << endl; 
-    while(p->data.getAccountNum() != acct){
+    } 
+    while(p){
+	    if(p->data.getAccountNum() == acct){
+	    	return p;
+	    }
         p = p->next;
     }
     return p;
-
 }
 
-SNode<BasicAccount>* findByName(SNode<BasicAccount>* data, string nm, SLinkedList<BasicAccount>* l){
-    SNode<BasicAccount>* p = l->getHead();  
-    if(p ==NULL){
+SNode<BasicAccount>* findByName(string nm, SLinkedList<BasicAccount>& L){
+    SNode<BasicAccount>* p = L.getHead();  
+    if(p == NULL){
         return p; 
     }
-    
-    cout << "name is : " << nm << endl; 
-    while(p->data.getName() != nm){
+    while(p){
+    if(p->data.getName() == nm){
+    	return p;
+    }
         p = p->next;
     }
     return p;
@@ -118,27 +119,30 @@ int main(){
 			cin >> s1;
 
 			//VALID NAME
-		//	if(findByName(s1, list)){
+			if(findByName(s1, list)){
 				int flag4 = 0;
 				float ammount = 0;
-			//	cout << findByName(s1, list)->data;
-				cout << "Valid account found, would you like to deposit(1) or withdraw(2)?" << endl;
+				cout << findByName(s1, list)->data;
+				cout << "Valid account found, would you like to deposit(1) or withdraw(2), or no action(0)?" << endl;
 				cin >> flag4;
 				//DEPOSIT	
 				if(flag4 == 1){
 					cout << "How much would you like to deposit?" << endl;
 					cin >> ammount;
-			//		findByName(s1, list)->data.deposit(ammount);
+					findByName(s1, list)->data.deposit(ammount);
 
 				}
 				//WITHDRAW
 				if(flag4 == 2){
-					cout << "How much would you like to deposit?" << endl;
+					cout << "How much would you like to withdraw?" << endl;
 					cin >> ammount;
-			//		findByName(s1, list)->data.deposit(ammount);
+					findByName(s1, list)->data.withdraw(ammount);
 
 				}
-		//	}
+			}
+			else{
+			cout << "Could not find account" << endl;
+			}
 
 		}
 		//FIND ID branch
@@ -146,25 +150,34 @@ int main(){
 			long int i1;
 			cout << "Please enter id" << endl;
 			cin >> i1;
-			//if(findByAcct(i1,list)){ //find if id entered matches an account
+			if(findByAcct(i1,list)){ //find if id entered matches an account
 			
 			//account found
 				int flag5;
-				//cout << findByAcct(i1,list)->data;
+				float ammount = 0;
+				cout << findByAcct(i1,list)->data;
 				cout << "Valid Account found, would you like to deposit(1), or withdraw(2), or no action(0)?" << endl;
 				cin >> flag5;
 				//Deposit
 				if(flag5 == 1){
-					//findByAcct(i1,list)->data.deposit(i1);
+					cout << "How much would you like to deposit?" << endl;
+					findByAcct(i1,list)->data.deposit(ammount);
 				}
 				//Withdraw
 				if(flag5 == 2){
-					//findByAcct(i1,list)->data.withdraw(i1);
+					cout << "How much would you like to withdraw?" << endl;
+					findByAcct(i1,list)->data.withdraw(ammount);
 				}
 			
-			//}
+			}
+			else{
+			cout << "Could not find accout" << endl;
+			}
 
 		}
+		cout << "Press enter to continue" << endl;
+		cin.ignore();
+		cin.get();
 	}
 
 	//DELETE branch, find an account by name or id and deletes
@@ -175,36 +188,40 @@ int main(){
 		//DELETE by name
 		if(flag3 == 1){
 
-			cout << "What is your name? (see hints above^^): "; 
+			cout << "What is your name? "; 
 	        string name;  
 	        cin>> name; 
-		    SNode<BasicAccount>* ptr1 = list.getHead(); 
-            SNode<BasicAccount>* ptr = findByName(ptr1, name, &list);
-            cout<< "Erasing "<< ptr->data.getName() << endl; 
-            list.erase(ptr);
-            if (list.getHead()==NULL){
-                cout << "No More Accounts to delete! Thank you come again\n"; 
-            } 
-            list.printAll(); //debug
+            
+		SNode<BasicAccount>* ptr = findByName(name, list);
+            	if(ptr == 0){
+			cout << "Could not find account" << endl;
+		}
+		if(ptr != 0){
+			cout<< "Erasing "<< ptr->data.getName() << endl; 
+			list.erase(ptr);
+		}
+		
 		}
 		//DELETE by id
 		if(flag3 == 2){
-			cout << "What is your account number? (see hints above^^): "; 
-	        float acctn =0; 
-	        cin>> acctn; 
-		    SNode<BasicAccount>* ptr1 = list.getHead(); 
-            SNode<BasicAccount>* ptr = findByAcct(ptr1, acctn, &list);
-            cout<< "Erasing "<< ptr->data.getName() << endl; 
-            list.erase(ptr);
-            if (list.getHead()==NULL){
-                cout << "No More Accounts to delete! Thank you come again\n"; 
-            } 
-            list.printAll(); //debug
+			cout << "What is your account number? "; 
+	        	long int acctn =0; 
+	        	cin>> acctn; 
+            
+			SNode<BasicAccount>* ptr = findByAcct(acctn, list);
+            
+			if(ptr == 0){
+				cout << "Could not find account" << endl;
+			}
+			if(ptr != 0){
+			cout<< "Erasing "<< ptr->data.getName() << endl; 
+            		list.erase(ptr);
+			}
 		}
 
-
-		else{}
-
+	cout << "Press enter to continue" << endl;
+	cin.ignore();
+	cin.get();
 	}
 	
     }
