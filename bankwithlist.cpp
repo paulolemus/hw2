@@ -2,57 +2,24 @@
 //Matthew Yamamoto
 //02/24/17
 //This program will be the driver that tests our bank account list
-#include<iostream>
 
+#include<iostream>
 #include "singlylinked.h"
 #include "BasicAccount.h"
 #include <string>
-// using std::endl;
-using namespace std; 
-// SNode<T>* SLinkedList<T>::erase(SNode<T>* p){
-// void SLinkedList<T>::printAll(SNode<T>* p){
-// template <>
-// void SLinkedList<struct BasicAccount>::sort(SLinkedList list, BasicAccount* ba){
-// // void sort(SLinkedList list,BasicAccount* ba){	//function sort to add new basicaccounts
-// 	SNode<struct BasicAccount>* current = list.getHead();
-
-// 	while(current){
-// 		if(ba->getAccountNum() > current->data->getid()){	//if basicaccount id is greater than current id
-// 		list.insert(ba, current)	//insert basic account and end
-// 		return 0;
-// 		}
-// 		if(ba->getid == current->data->getAccountNum()){	//if id is equal to, account number
-// 			std::cout << "Account number invalid" << endl;	//invalid, end
-// 			return 0;
-// 		}
-// 		current = current->next;	//iterate
-// 	}
-
-// 	return 0;
-// }
+using std::endl;
+using std::cout;
+using std::cin;
 
 
+// FIXED ADD NODE FUNCTION GOES BENEATH HERE
 
-template <typename T>
-SNode<T>* SLinkedList<T>::findByAcct(const T& data, float acct){
-    SNode<T>* p = head;  
-    if(p ==NULL){
-        return p; 
-    }
-    
-    cout << "acct is : " << acct << endl; 
-    while(p->data.getAccountNum() != acct){
-        p = p->next;
-    }
-    return p;
-}
 
 
 int main(){
 
-	// SLinkedList();
-	float a =0; 
 	SLinkedList<BasicAccount> list; //creates a list of type BasicAccount
+//<<<<<<< HEAD
 	char flag = 'a';
 
 while(flag !='q')	{
@@ -95,5 +62,12 @@ while(flag !='q')	{
    // cout<< "Welcome "<< ptr->data.getName() << "!"<< endl; 
     
 }
+//=======
+
+    // MAIN LOOP GOES HERE
+	
+
+  //  cout << "\n\nGoodbye!\n\n";
+//>>>>>>> 1cf043e68af86f1aece598fa18a07a083cd1f912
 	return 0;
 }
