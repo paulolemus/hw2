@@ -46,12 +46,7 @@ class SLinkedList{
     SNode<T>* setTail(SNode<T>* p);
     SNode<T>* getHead();
     SNode<T>* setHead(SNode<T>* p);
-<<<<<<< HEAD
-    
-    // void      sort(SLinkedList list, BasicAccount* ba);
-    // SNode<T>* findByAcct(const T& data, float acct);
-=======
->>>>>>> bf313d325f28c4d78fd1fd825e251218f17167c2
+
 };
 
 /////////////////////////////////////////////////////
