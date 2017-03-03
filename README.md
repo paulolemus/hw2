@@ -29,7 +29,7 @@ README.md
 type: `make`
 This should make the bankwithlist.cpp into a bankwithlist exec.
 
-# Description of the files:
+
 
 ## singlylinked.h (Paulo)
 Paulo - For this hw assignment, I wanted to revamp my singlylist.h/cpp
