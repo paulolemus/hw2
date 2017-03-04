@@ -60,18 +60,19 @@ int main(){
         printGUI();
         cin >> choice;
 
+        //case switch to deal the user inputs
         switch(choice){
-            case 1:
+            case 1:     //add a new account
                 caseAddCustomer(list);
                 break;
-            case 2:
+            case 2:     //fine an account
                 acctPtr = caseFindCustomer(list);
                 if(acctPtr != NULL) depositOrWithdraw(acctPtr);
                 break;
-            case 3:
+            case 3:     //delete an account
                 caseDeleteCustomer(list);
                 break;
-            case 4:
+            case 4:     //print all accounts
                 cout << endl;
                 list.printAll();
                 break;
@@ -155,18 +156,18 @@ void caseDeleteCustomer(SLinkedList<T>& list){
     long int searchInt;
     SNode<BasicAccount>* ptr;
 
-    cout << "\n\nWould you like to delete by id or name? ";
+    cout << "\n\nWould you like to delete by id (I) or name (N)? ";
     cin >> nameOrId;
 
     // search by name or id, exit if there was any invalid input
-    if(nameOrId == "id"){
+    if(nameOrId == "I"){
         cout << "\nEnter id: ";
         cin >> searchInt;
         if(cin.fail()) return;
         ptr = searchById(list, searchInt);
     }
-    else if(nameOrId == "name"){
-        cout << "\nEnter name: ";
+    else if(nameOrId == "N"){
+        cout << "\nEnter name (case sensitive): ";
         cin >> searchStr;
         ptr = searchByName(list, searchStr);
     }
