@@ -3,6 +3,10 @@
  * Date: 2/24/2017
  */
 
+/* Test case:
+ * Output exactly matches expectations.
+ */
+
 #include <iostream>
 #include "singlylinked.h"
 #include "BasicAccount.h"
@@ -43,11 +47,6 @@ int main(){
     cout << "-----printing all after appending all" << endl; 
     list.printAll();
 
-    /* Here is an example of how to use the find
-     * function and how to use it to interact with
-     * a bankAccount in the list.
-     * Kind of dumb right now, I know.
-     */
     // list.find(ba1)->data.setBalance(1234);
     float a = list.find(ba1)->data.getAccountNum();
     float b = list.find(ba1)->data.getBalance();

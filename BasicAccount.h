@@ -43,6 +43,7 @@ public:
      */
     void operator=(const BasicAccount& ba);
     bool operator==(const BasicAccount& ba);
+    bool operator!=(const BasicAccount& ba);
     friend std::ostream& operator<<(std::ostream &output, const BasicAccount& ba);
 
     /* Withdraw Function 

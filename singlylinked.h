@@ -92,8 +92,7 @@ SNode<T>* SLinkedList<T>::insert(const T& data, SNode<T>* p){
         head       = node;
         return node;
     }
-    while(current){
-        if(current == p) break;
+    while(current && current != p){
         previous = current;
         current = current->next;
     }
@@ -140,8 +139,7 @@ template <typename T>
 SNode<T>* SLinkedList<T>::erase(SNode<T>* p){
     SNode<T>* prev = NULL;
     SNode<T>* curr = head;
-    while(curr){
-        if(curr == p) break;
+    while(curr && curr != p){
         prev = curr;
         curr = curr->next;
     }
@@ -164,8 +162,7 @@ template <typename T>
 SNode<T>* SLinkedList<T>::erase(const T& data){
     SNode<T>* prev = NULL;
     SNode<T>* curr = head;
-    while(curr){
-        if(curr->data == data) break;
+    while(curr && curr->data != data){
         prev = curr;
         curr = curr->next;
     }
@@ -194,8 +191,7 @@ SNode<T>* SLinkedList<T>::erase(const T& data){
  */
 template <typename T>
 SNode<T>* SLinkedList<T>::find(const T& data, SNode<T>* p){
-    while(p != NULL){
-        if(p->data == data) break;
+    while(p != NULL && p->data != data){
         p = p->next;
     }
     return p;
@@ -203,8 +199,7 @@ SNode<T>* SLinkedList<T>::find(const T& data, SNode<T>* p){
 template <typename T>
 SNode<T>* SLinkedList<T>::find(const T& data){
     SNode<T>* p = head;
-    while(p != NULL){
-        if(p->data == data) break;
+    while(p != NULL && p->data != data){
         p = p->next;
     }
     return p;

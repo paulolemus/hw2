@@ -149,9 +149,10 @@ void caseAddCustomer(SLinkedList<T>& list){
 template <typename T>
 void caseDeleteCustomer(SLinkedList<T>& list){
 
-    string confirm;
-    string nameOrId;
-    string searchStr;
+    string   confirm;
+    string   nameOrId;
+    string   searchStr;
+    long int searchInt;
     SNode<BasicAccount>* ptr;
 
     cout << "\n\nWould you like to delete by id or name? ";
@@ -159,8 +160,9 @@ void caseDeleteCustomer(SLinkedList<T>& list){
 
     if(nameOrId == "id"){
         cout << "\nEnter id: ";
-        cin >> searchStr;
-        ptr = searchById(list, std::stol(searchStr));
+        cin >> searchInt;
+        if(cin.fail()) return;
+        ptr = searchById(list, searchInt);
     }
     else if(nameOrId == "name"){
         cout << "\nEnter name: ";
@@ -179,6 +181,7 @@ void caseDeleteCustomer(SLinkedList<T>& list){
     cout << ptr->data;
     cout << "\nAre you sure you want to delete the account? ";
     cin >> confirm;
+
     if(confirm[0] == 'y' || confirm[0] == 'Y'){
         list.erase(ptr);
         cout << "\nAccount deleted.\n\n";
@@ -197,8 +200,9 @@ void caseDeleteCustomer(SLinkedList<T>& list){
 template <typename T>
 SNode<T>* caseFindCustomer(SLinkedList<T>& list){
 
-    string nameOrId;
-    string searchStr;
+    string   nameOrId;
+    string   searchStr;
+    long int searchInt;
     SNode<BasicAccount>* ptr;
 
     cout << "\n\nWould you like to search by id or name? ";
@@ -206,8 +210,9 @@ SNode<T>* caseFindCustomer(SLinkedList<T>& list){
 
     if(nameOrId == "id"){
         cout << "\nEnter id: ";
-        cin >> searchStr;
-        ptr = searchById(list, std::stol(searchStr));
+        cin >> searchInt;
+        if(cin.fail()) return NULL;
+        ptr = searchById(list, searchInt);
     }
     else if(nameOrId == "name"){
         cout << "\nEnter name: ";
@@ -267,14 +272,12 @@ SNode<T>* searchById(SLinkedList<T>& list, long int id){
     SNode<T>* ptr = list.getHead();
     while(ptr && ptr->data.getAccountNum() != id){
         ptr = list.advance(ptr, 1);
-        //if(!ptr) return NULL;
     }
     return ptr;
 }
 template <typename T>
 SNode<T>* searchByName(SLinkedList<T>& list, string name){
     SNode<T>* ptr = list.getHead();
-    //if(ptr == NULL) return NULL;
     while(ptr && ptr->data.getName() != name){
         ptr = list.advance(ptr, 1);
     }
@@ -290,6 +293,7 @@ template <typename T>
 void depositOrWithdraw(SNode<T>* ptr){
     int choice;
     float amount;
+
     cout << "\nWould you like to withdraw or deposit from this account?\n";
     cout << "1 - Withdraw\n";
     cout << "2 - Deposit\n";

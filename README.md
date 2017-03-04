@@ -36,3 +36,9 @@ evalPaulo.md
 type: `make`
 This should make the bankwithlist.cpp into a bankwithlist exec.
 
+# Test cases
+
+The outcomes from the three test drivers all met expectations.
+The test drivers primarily tested the different functions in the
+singlyLinkedList class. The functions all work even with edge cases
+where we attempt to append to an empty list, 

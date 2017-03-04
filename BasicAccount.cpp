@@ -78,6 +78,15 @@ bool BasicAccount::operator==(const BasicAccount& ba){
     else return false;
 }
 
+bool BasicAccount::operator!=(const BasicAccount& ba){
+    if(this->accountNum != ba.accountNum ||
+       this->name       != ba.name ||
+       this->balance    != ba.balance){
+        return true;
+    }
+    else return false;
+}
+
 std::ostream& operator<<(std::ostream &output, const BasicAccount& ba){
     output << "Account Number:\t" << ba.accountNum << std::endl;
     output << "Name:\t\t" << ba.name << std::endl;

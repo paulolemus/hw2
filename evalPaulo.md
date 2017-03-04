@@ -49,3 +49,10 @@ separately for each parameter?
 
 
 ## 4) Comments:
+This project was really fun because it forced me to use my own data structure.
+I hope that in the future we can have projects were we make use of our own
+structures to solve problems. I would love to implement queues, priority queues, 
+and balanced trees if possible.
+I feel that the description for what you want could be a little clearer. You cleared
+things up in class on Wednesday, but if we had better descriptions in the homework PDF,
+I feel that we could be more productive.
