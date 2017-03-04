@@ -3,12 +3,29 @@
  * Date: 2/24/2017
  */
 
+/* A test file used to test the functions of the
+ * singlylinked classes.
+ *
+ * Expectations:
+ * 1. Print "ptr0 is head"
+ *          "ptr 1 is not head"
+ * 2. Print "10 <cr> 20"
+ * 3. Print "20"
+ * 4. Print "1 <cr> 2 <cr> 3 <cr> 4 <cr> 5 <cr> 6"
+ * 5. Print "3: 3"
+ * 6. Print "WhatFound: 6"
+ * 7. Print "ptr8IsTail"
+ * ...............
+ * And more.
+ * 
+ * Does this match expectations? Yes
+ */
+
 #include <iostream>
 #include "singlylinked.h"
 using std::cin;
 using std::cout;
 using std::endl;
-
 
 int main(){
 
@@ -26,7 +43,7 @@ int main(){
 
 
     if(ptr0 == list.getHead()) cout << "ptr0 is head" << endl;
-    if(ptr1 == list.getHead()) cout << "ptr0 is head" << endl;
+    if(ptr1 == list.getHead()) cout << "ptr1 is head" << endl;
     else cout << "ptr 1 is not head" << endl;
     list.getHead();
     list.getTail();
