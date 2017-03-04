@@ -207,17 +207,17 @@ SNode<T>* caseFindCustomer(SLinkedList<T>& list){
     long int searchInt;
     SNode<BasicAccount>* ptr;
 
-    cout << "\n\nWould you like to search by id or name? ";
+    cout << "\n\nWould you like to search by id (I) or name (N)? ";
     cin >> nameOrId;
 
-    if(nameOrId == "id"){
+    if(nameOrId == "I"){
         cout << "\nEnter id: ";
         cin >> searchInt;
         if(cin.fail()) return NULL;
         ptr = searchById(list, searchInt);
     }
-    else if(nameOrId == "name"){
-        cout << "\nEnter name: ";
+    else if(nameOrId == "N"){
+        cout << "\nEnter name (case sensitive): ";
         cin >> searchStr;
         ptr = searchByName(list, searchStr);
     }
