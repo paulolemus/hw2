@@ -65,7 +65,7 @@ int main(){
             case 1:     //add a new account
                 caseAddCustomer(list);
                 break;
-            case 2:     //fine an account
+            case 2:     //find an account
                 acctPtr = caseFindCustomer(list);
                 if(acctPtr != NULL) depositOrWithdraw(acctPtr);
                 break;
