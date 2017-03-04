@@ -104,6 +104,7 @@ void printGUI(){
     cout << "5 - Burn everything and shutdown\n";
 }
 
+
 /* Add a new account to the list. This first checks
  * if the account is available by ID.
  * If it is, it adds it, otherwise it indicates the
@@ -135,6 +136,7 @@ void caseAddCustomer(SLinkedList<T>& list){
         cout << ptr->data;
     }
 }
+
 
 /* Delete an existing customer:
  * This block allows the user to first search
@@ -183,6 +185,7 @@ void caseDeleteCustomer(SLinkedList<T>& list){
     }
     else cout << "\nNo action taken.\n\n";
 }
+
 
 /* Find an existing account by name or ID.
  * This choice allows the user to select
@@ -249,6 +252,7 @@ SNode<T>* addNewAccount(SLinkedList<T>& list, BasicAccount& ba){
     ptr = list.insert(ba, ptr);
     return ptr;
 }
+
 
 /* SearchById && SearchByName:
  * These functions operate very similarly.

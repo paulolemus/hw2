@@ -13,11 +13,16 @@ paper speeds up the time it takes to write and code drastically.
 
 
 ## 2) My Contributions
-For this assignment, my main contribution was the linked list
+For the original assignment, my main contribution was the linked list
 class. Beside writing singlylinked.h, I also assisted with the
 logic for the driver bankwithlist.cpp by writing out the Suedocode 
 for some of the functions used, as well as a "map" of the logic
 for the main while loop. I also contributed by cleaning up code.
+
+For this resubmission, I rewrote the bankwithlist.cpp file so that 
+it doesn't crash on user input, the user can print all the bank accounts,
+and so the main can easily be read as the code has been broken up in to
+different functions.
 
 ## singlylinked.h
 For this hw assignment, I wanted to revamp my singlylist.h/cpp

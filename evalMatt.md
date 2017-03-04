@@ -32,7 +32,7 @@ This contains the bank account class that was used for our previous lab.
 
 
 ## 3) Questions:
-Is there advantages to using a doubly linked list over a singly linked
+Are there advantages to using a doubly linked list over a singly linked
 list? I imagine having a search function for a singly linked list to 
 take a lot of time to find the element if the list is long and you
 have to start from the head and search every element. I read
