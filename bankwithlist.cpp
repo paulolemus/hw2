@@ -305,7 +305,7 @@ void depositOrWithdraw(SNode<T>* ptr){
         cout << "Enter amount to withdraw: ";
         cin >> amount;
         check = ptr->data.withdraw(amount);
-        if(check == -1) cout << "Insufficient fundsi\n";
+        if(check == -1) cout << "Insufficient funds\n";
         else if(check == -2) cout << "An unknown error has occured\n";
         else{
             cout << "New balance: " << ptr->data.getBalance() << endl;
