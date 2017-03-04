@@ -16,14 +16,11 @@ using std::string;
 /* This functions adds an account to the list sorted by ID. */
 template <typename T>
 SNode<T>* addNewAccount(SLinkedList<T>& list, BasicAccount& ba);
-
 /* Return a pointer to a node with the matching id or name */
 template <typename T>
 SNode<T>* searchById(SLinkedList<T>& list, long int id);
 template <typename T>
 SNode<T>* searchByName(SLinkedList<T>& list, string name);
-
-
 /* Add or remove money from a BasicAccount in the given node */
 template <typename T>
 void depositOrWithdraw(SNode<T>* ptr);
@@ -35,10 +32,10 @@ template <typename T>
 void caseDeleteCustomer(SLinkedList<T>& list);
 template <typename T>
 SNode<T>* caseFindCustomer(SLinkedList<T>& list);
-
+void printGUI();
 
 int main(){
-    
+
     // Class to manage linkedList data structure
     SLinkedList<BasicAccount> list;
 
@@ -55,18 +52,11 @@ int main(){
      */
     while(true){
         int choice;
+        char c;
         SNode<BasicAccount>* acctPtr = NULL;
 
         // Clean introduction
-        cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-        cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-        cout << "\tWelcome to Sandwich Banking Services.\n\n";
-        cout << "What operation would you like to perform?\n";
-        cout << "1 - Add new Account\n";
-        cout << "2 - Find an existing customer\n";
-        cout << "3 - Delete an existing customer\n";
-        cout << "4 - Print all bank account information\n";
-        cout << "5 - Burn everything and shutdown\n";
+        printGUI();
         cin >> choice;
 
         switch(choice){
@@ -92,12 +82,26 @@ int main(){
         if(cin.fail()) cout << "\nAn invalid command was entered\n";
         cout << "\nPress Enter to continue";
         cin.clear();
-        cin.ignore(100, '\n');
-        while(cin.get() != '\n');
+        while((c = cin.get()) != '\n' && c != EOF); // One to clear current input
+        while((c = cin.get()) != '\n' && c != EOF); // One to wait for enter
     }
     return 0;
 }
 
+
+/* User interface */
+void printGUI(){
+
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    cout << "\tWelcome to Sandwich Banking Services.\n\n";
+    cout << "What operation would you like to perform?\n";
+    cout << "1 - Add new Account\n";
+    cout << "2 - Find an existing customer\n";
+    cout << "3 - Delete an existing customer\n";
+    cout << "4 - Print all bank account information\n";
+    cout << "5 - Burn everything and shutdown\n";
+}
 
 /* Add a new account to the list. This first checks
  * if the account is available by ID.
@@ -119,6 +123,7 @@ void caseAddCustomer(SLinkedList<T>& list){
     cin >> name;
     cout << "Account balance\t: ";
     cin >>balance;
+    if(cin.fail()) return;
     BasicAccount ba(id, name, balance);
     ptr = addNewAccount(list, ba);
     if(ptr == NULL){
