@@ -19,30 +19,31 @@ TLDR: It works pretty well.
 # Files:
 
 bankwithlist.cpp  
-BasicAccount.cpp
-BasicAccount.h
-singlylinked.h
-testdriver.cpp
-testdriver2.cpp
-testdriver3.cpp
-makefile
-README.md
-evalJessie.md
-evalMatt.md
-evalPaulo.md
+BasicAccount.cpp  
+BasicAccount.h  
+singlylinked.h  
+testdriver.cpp  
+testdriver2.cpp  
+testdriver3.cpp  
+makefile  
+README.md  
+evalJessie.md  
+evalMatt.md  
+evalPaulo.md  
 
 # To make:
 
-type: `make`
+type: `make`  
 This should make the bankwithlist.cpp into a bankwithlist exec.
 
 # Test cases
 
-The outcomes from the three test drivers all met expectations.
+The outcomes from the three test drivers all met expectations.  
 The test drivers primarily tested the different functions in the
-singlyLinkedList class. The functions all work even with edge cases
+singlyLinkedList class.  
+The functions all work even with edge cases
 where we attempt to append to an empty list, deleting head or tail, 
 deleting inside nodes, inserting before a node, inserting before
-head or tail, etc.
+head or tail, etc.  
 
 You can find some examples in the testdrivers.
