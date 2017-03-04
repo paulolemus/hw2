@@ -35,7 +35,7 @@ evalPaulo.md
 
 type: `make`  
 This should make the following exec files:  
-bankwithlist   
+bankwithlist 
 testdriver  
 testdriver2  
 testdriver3  
