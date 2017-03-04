@@ -79,6 +79,8 @@ int main(){
             case 5:
                 cout << "\n\nGoodbye!\n\n";
                 return 0;
+	    default: 
+		cout << "Error! "; 
         }
         // Input error guards
         if(cin.fail()) cout << "\nAn invalid command was entered\n";
