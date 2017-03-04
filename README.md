@@ -4,9 +4,9 @@ Team   : Sandwich
 Members: Paulo Lemus, Matthew Yamamoto, Jessie Grazziotin
 Date   : 2/24/2017
 
-# what our program does:
+# What our program does:
 
-the bankwithlist executable begins with a simple interface which
+The bankwithlist executable begins with a simple interface which
 allows the user to add, search for, or delete a BasicAccount.
 The user is also given the options to print all bank accounts or close the program.
 The user cannot add a bankaccount that has the same ID as an existing one.
