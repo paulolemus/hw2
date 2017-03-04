@@ -34,7 +34,11 @@ evalPaulo.md
 # To make:
 
 type: `make`  
-This should make the bankwithlist.cpp into a bankwithlist exec.
+This should make the following exec files:  
+bankwithlist   
+testdriver  
+testdriver2  
+testdriver3  
 
 # Test cases
 
