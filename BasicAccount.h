@@ -3,8 +3,8 @@
  * Date: 2/2/2017
  */
 
-#ifndef BASICACCOUNT_H_
-#define BASICACCOUNT_H_
+#ifndef HW2_BASICACCOUNT_H_
+#define HW2_BASICACCOUNT_H_
 #include <string>
 
 

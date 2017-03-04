@@ -41,4 +41,8 @@ This should make the bankwithlist.cpp into a bankwithlist exec.
 The outcomes from the three test drivers all met expectations.
 The test drivers primarily tested the different functions in the
 singlyLinkedList class. The functions all work even with edge cases
-where we attempt to append to an empty list, 
+where we attempt to append to an empty list, deleting head or tail, 
+deleting inside nodes, inserting before a node, inserting before
+head or tail, etc.
+
+You can find some examples in the testdrivers.

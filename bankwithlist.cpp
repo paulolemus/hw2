@@ -158,6 +158,7 @@ void caseDeleteCustomer(SLinkedList<T>& list){
     cout << "\n\nWould you like to delete by id or name? ";
     cin >> nameOrId;
 
+    // search by name or id, exit if there was any invalid input
     if(nameOrId == "id"){
         cout << "\nEnter id: ";
         cin >> searchInt;
@@ -177,6 +178,7 @@ void caseDeleteCustomer(SLinkedList<T>& list){
         cout << "\nCould not locate account.\n";
         return;
     }
+    // Account was found, procede and ask for confirmation
     cout << "Found account. Details below:\n\n";
     cout << ptr->data;
     cout << "\nAre you sure you want to delete the account? ";
