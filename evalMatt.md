@@ -42,3 +42,7 @@ and move anywhere.
 
 
 ## 4) Comments:
+This assignment was challenging because of the multiple layers of encapsulation.
+We had a linked list class that contained a slink that contained a basicaccount
+struct that contained data like name, id, and balance. It was confusing to
+think of the algorithms needed to get to the data that we were looking for.
